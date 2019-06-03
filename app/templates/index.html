@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<h1>Blogs</h1>
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+{% endblock %}
+{% block content %}
+<div style="color:black; background-image: url(https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover; background-repeat: no-repeat;">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Srisakdi');
+     h2{            display: block;
+            font-family: 'Srisakdi', 'sans-serif';
+            color: blue;
+            font-size: 40px;
+            font-weight: 1000;
+            
+          }
+          ul {
+            font-family: 'Srisakdi',  sans-serif;
+          }
+          body{
+            background-image: url('/static/css/photo/abstract-attractive-backdrop-988872.jpg')
+          }
+          a{            display: block;
+                    font-family: 'Srisakdi', 'sans-serif';
+                    color: green;
+                    font-size: 30px;
+                    font-weight: 1000;
+                    text-align: center;
+                  }          
+</style>
+
+    <title> {{ title }} </title>
+
+    <div class="container">
+
+        <div class="row">            
+            <h2 class="blog-header" >
+                Welcome to my personal blogs.Feel free to make any contribution by adding your blog
+            </h2>
+                
+        </div>
+        <br><br><br>
+        <div class="row">
+            
+            <div class="col-md-4 col-lg-4"> 
+                <h2 class="blog-create">
+                    <a href="/blog/new">
+                        Create New Blog
+                    </a>
+                </h2>
+                
+            </div> 
+
+        </div>
+        <hr>
+
+        <ul class="list-unstyled">
+
+            {{ macro.displayBlogList(blogs) }}
+
+        </ul>
+
+        <ul class="list-unstyled">
+            {{ macro.displayCommentList(comments) }}
+        </ul>
+
+
+
+        <hr>
+
+
+  </div>
+
+
+{% endblock %}
